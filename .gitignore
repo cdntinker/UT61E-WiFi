@@ -3,6 +3,6 @@
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 .vscode/ipch
-Distribution/**
-!Distribution/
+Distribution/*.bin
+# !Distribution/
 include/TopSecret.h
