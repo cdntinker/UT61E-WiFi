@@ -8,8 +8,6 @@ extern char DEBUGtxt[48];
 #include <Tinker_WiFi.h>
 #include <Tinker_HTTP.h>
 
-#include "HTML.h"
-
 #if defined(SiniLink)
 #include <Tinker_SiniLink.h>
 #else

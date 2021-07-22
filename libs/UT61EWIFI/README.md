@@ -3,3 +3,9 @@
 [Design files & standalone firmware](https://github.com/SuperHouse/ut61ewifi)
 
 The intent is to work this into the TinkerLibs collection. (Including @austinscreations OTA_async_AP code)
+
+## The files
+
+* Tinker_UT61EWIFI.h
+* UT61EWIFI_functions.cpp
+* Content_Squirrel.htm
