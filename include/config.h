@@ -1,3 +1,5 @@
+// Configuration for the OTA_async_AP & TinkerLibs_DEBUG libraries
+
 #include <Arduino.h>
 
 const char* host     = "FooBar";
