@@ -1,5 +1,6 @@
 #include <Tinker_DEBUG.h>
-extern char DEBUGtxt[48];
+// extern char DEBUGtxt[92];
+extern char DEBUGtxt[];
 
 // General
 uint32_t g_device_id; // Unique ID from ESP chip ID
@@ -17,7 +18,7 @@ char g_mqtt_json_topic[50]; // MQTT topic for reporting the decoded reading
 
 /* Status LED */
 #include <Adafruit_NeoPixel.h> // For status LED
-#define STATUS_LED_PIN D3
+#define STATUS_LED_PIN D4
 
 Adafruit_NeoPixel pixels(1, STATUS_LED_PIN, NEO_GRB + NEO_KHZ800);
 
