@@ -1,6 +1,7 @@
 #include <Tinker_DEBUG.h>
-// extern char DEBUGtxt[92];
 extern char DEBUGtxt[];
+
+#include <Tinker_UT61EWIFI.h>
 
 // General
 uint32_t g_device_id; // Unique ID from ESP chip ID
@@ -13,32 +14,6 @@ uint8_t g_buffer_position = 0;
 char g_command_topic[50];   // MQTT topic for receiving commands
 char g_mqtt_raw_topic[50];  // MQTT topic for reporting the raw data packet
 char g_mqtt_json_topic[50]; // MQTT topic for reporting the decoded reading
-
-///////////////////////////////////////////////////////////////////////////////////////////
-
-/* Status LED */
-#include <Adafruit_NeoPixel.h> // For status LED
-#define STATUS_LED_PIN D4
-
-Adafruit_NeoPixel pixels(1, STATUS_LED_PIN, NEO_GRB + NEO_KHZ800);
-
-void setup_RGB_StatusLED()
-{
-  sprintf(DEBUGtxt, "RGB Status LED on GPIO%d", STATUS_LED_PIN);
-  DEBUG_Init(DEBUGtxt);
-
-  pixels.begin();
-  pixels.clear();
-  pixels.show();
-  pixels.setBrightness(50);
-
-}
-
-void RGB_StatusLED(int R, int G, int B)
-{
-  pixels.setPixelColor(0, pixels.Color(R, G, B));
-  pixels.show();
-}
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 #include <SoftwareSerial.h> // Must be the EspSoftwareSerial library
@@ -80,7 +55,6 @@ void setup_UT61EWIFI()
   DEBUG_LineOut(DEBUGtxt);
   sprintf(DEBUGtxt, "JSON Out: %s", g_mqtt_json_topic);
   DEBUG_LineOut(DEBUGtxt);
-
 }
 
 void UT61EWIFI_loop()
@@ -95,18 +69,18 @@ void UT61EWIFI_loop()
     {
       if (10 == this_character)
       {
-        pixels.setPixelColor(0, pixels.Color(0, 255, 0));  // Green
-        pixels.show();
+        RGB_StatusLED(0, 255, 0); // Green
         g_mqtt_message_buffer[g_buffer_position] = 0;
         g_buffer_position = 0;
         ///////////////////////////////////////////////////////////
         // client.publish(g_mqtt_raw_topic, g_mqtt_message_buffer);
         ///////////////////////////////////////////////////////////
         DEBUG_LineOut(g_mqtt_message_buffer);
-        pixels.setPixelColor(0, pixels.Color(0, 0, 0));  // Green
-        pixels.show();
+        RGB_StatusLED(0, 0, 0); // off
       }
-    } else {
+    }
+    else
+    {
       g_mqtt_message_buffer[g_buffer_position] = this_character;
       g_buffer_position++;
     }
