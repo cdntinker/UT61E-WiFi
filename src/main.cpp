@@ -7,33 +7,10 @@ extern char DEBUGtxt[48];
 
 #include <Tinker_WiFi.h>
 #include <Tinker_HTTP.h>
-
-#if defined(SiniLink)
-#include <Tinker_SiniLink.h>
-#else
-const char *Content_SiniLink PROGMEM = "";
-#endif
-
-#if defined(TFT_enabled)
-#include "Tinker_TFT.h"
-#include <SPI.h>
-#endif
-
-#if defined(MQTT_enabled)
 #include <Tinker_MQTT.h>
-#endif
 
-#if defined(RGB_enabled)
-#include <Tinker_RGB.h>
-int RGBping_CTR;
-#endif
-
-#if defined(UT61EWIFI)
 #include <Tinker_UT61EWIFI.h>
 #include <HTML/Parts/Content_Squirrel.htm>
-#else
-const char *Content_Squirrel PROGMEM = "";
-#endif
 
 /* OTA Stuff */
 bool restartRequired = false;
@@ -46,46 +23,25 @@ void setup()
   DEBUG_Title();
   DEBUG_Reset();
 
-#if defined(UT61EWIFI)
   setup_RGB_StatusLED();
   RGB_StatusLED(100, 0, 0); // Red
-#endif
 
   setup_WiFi();
 
   sprintf(DEBUGtxt, "WiFi Strength: %d dBm", WiFi_strength());
   DEBUG_LineOut(DEBUGtxt);
 
-#if defined(UT61EWIFI)
   RGB_StatusLED(100, 100, 0); // Yellow(ish)
-#endif
 
   setup_HTTP();
 
-#if defined(UT61EWIFI)
   RGB_StatusLED(100, 0, 100); // Pink(ish)
-#endif
 
-#if defined(TFT_enabled)
-  TFT_Setup();
-#endif
-
-#if defined(SiniLink)
-  SiniLink_init();
-#endif
-
-#if defined(MQTT_enabled)
   MQTT_init();
-#endif
+
   RGB_StatusLED(0, 0, 100); // Blue
 
-#if defined(RGB_enabled)
-  setup_RGBping();
-#endif
-
-#if defined(UT61EWIFI)
   setup_UT61EWIFI();
-#endif
 
   DEBUG_Separator();
   sprintf(DEBUGtxt, "Sketch Size: %s", info_memsketch().c_str());
@@ -105,21 +61,9 @@ void loop()
     delay(2000);
   }
 
-#if defined(MQTT_enabled)
   MQTT_handler();
-#endif
 
-#if defined(TFT)
-  TFT_loop();
-#endif
-
-#if defined(RGB_enabled)
-  loop_RGBping(); // borks HTTP stuff...  :(
-#endif
-
-#if defined(UT61EWIFI)
   UT61EWIFI_loop();
-#endif
 
 }
 
