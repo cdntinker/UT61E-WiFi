@@ -1,7 +1,134 @@
 const char *Content_Squirrel PROGMEM =
 R"rawliteral(
 <div class = "menu-reboot">
-  <H2>Look!</H2>
-  <H1>It's a Squirrel!</H1>
+  <H1>Look! It's a Squirrel!</H1>
+<div class = "display">
+  <div class = "row">
+       <div class = "LCD-text1">
+          <span id="mode">Mode</span>
+      </div>
+
+      <div class = "LCD-text2">
+          <span id="range">Range</span>
+      </div>
+  </div>
+
+  <div class = "LCD">
+      <div>
+          <div class = "LCDdigit">
+              <div id="mydemo1">
+                    <div class="clock c8">
+                  <div class="v n1"><div class="u"></div><div class="d"></div></div>
+                  <div class="v n2"><div class="u"></div><div class="d"></div></div>
+                  <div class="h n3"><div class="l"></div><div class="r"></div></div>
+                  <div class="v n4"><div class="u"></div><div class="d"></div></div>
+                    <div class="v n5"><div class="u"></div><div class="d"></div></div>
+                  <div class="h n6"><div class="l"></div><div class="r"></div></div>
+                  <div class="h n7"><div class="l"></div><div class="r"></div></div>
+                </div> 
+              </div> 
+          </div>
+
+          <div class ="dot">
+              <span id="dot1">.</span>
+          </div>
+
+          <div class = "LCDdigit">  
+              <div id="mydemo2">
+                <div class="clock c8">
+                  <div class="v n1"><div class="u"></div><div class="d"></div></div>
+                  <div class="v n2"><div class="u"></div><div class="d"></div></div>
+                  <div class="h n3"><div class="l"></div><div class="r"></div></div>
+                  <div class="v n4"><div class="u"></div><div class="d"></div></div>
+                  <div class="v n5"><div class="u"></div><div class="d"></div></div>
+                      <div class="h n6"><div class="l"></div><div class="r"></div></div>
+                  <div class="h n7"><div class="l"></div><div class="r"></div></div>
+                  </div> 
+              </div> 
+          </div> 
+
+          <div class ="dot">
+              <span id="dot2">.</span>
+             </div>
+
+          <div class = "LCDdigit">  
+              <div id="mydemo3">
+                <div class="clock c8">
+                      <div class="v n1"><div class="u"></div><div class="d"></div></div>
+                  <div class="v n2"><div class="u"></div><div class="d"></div></div>
+                  <div class="h n3"><div class="l"></div><div class="r"></div></div>
+                  <div class="v n4"><div class="u"></div><div class="d"></div></div>
+                  <div class="v n5"><div class="u"></div><div class="d"></div></div>
+                  <div class="h n6"><div class="l"></div><div class="r"></div></div>
+                  <div class="h n7"><div class="l"></div><div class="r"></div></div>
+                  </div> 
+              </div> 
+          </div>  
+
+          <div class ="dot">
+              <span id="dot3">.</span>
+          </div>
+
+          <div class = "LCDdigit">  
+              <div id="mydemo4">
+                 <div class="clock c8">
+                  <div class="v n1"><div class="u"></div><div class="d"></div></div>
+                  <div class="v n2"><div class="u"></div><div class="d"></div></div>
+                  <div class="h n3"><div class="l"></div><div class="r"></div></div>
+                  <div class="v n4"><div class="u"></div><div class="d"></div></div>
+                  <div class="v n5"><div class="u"></div><div class="d"></div></div>
+                  <div class="h n6"><div class="l"></div><div class="r"></div></div>
+                  <div class="h n7"><div class="l"></div><div class="r"></div></div>
+                  </div> 
+              </div> 
+          </div> 
+
+          <div class ="dot">
+               <span id="dot4">.</span>
+          </div>
+
+          <div class = "LCDdigit">  
+              <div id="mydemo5">
+                <div class="clock c8">
+                  <div class="v n1"><div class="u"></div><div class="d"></div></div>
+                  <div class="v n2"><div class="u"></div><div class="d"></div></div>
+                  <div class="h n3"><div class="l"></div><div class="r"></div></div>
+                  <div class="v n4"><div class="u"></div><div class="d"></div></div>
+                  <div class="v n5"><div class="u"></div><div class="d"></div></div>
+                  <div class="h n6"><div class="l"></div><div class="r"></div></div>
+                  <div class="h n7"><div class="l"></div><div class="r"></div></div>
+                </div>
+              </div>
+          </div>
+
+          <div class ="dot">
+              <span id="dot5">.</span>
+          </div>
+
+          <div class = "LCDdigit">  
+              <div id="mydemo6">
+                <div class="clock c8">
+                  <div class="v n1"><div class="u"></div><div class="d"></div></div>
+                  <div class="v n2"><div class="u"></div><div class="d"></div></div>
+                  <div class="h n3"><div class="l"></div><div class="r"></div></div>
+                  <div class="v n4"><div class="u"></div><div class="d"></div></div>
+                  <div class="v n5"><div class="u"></div><div class="d"></div></div>
+                  <div class="h n6"><div class="l"></div><div class="r"></div></div>
+                  <div class="h n7"><div class="l"></div><div class="r"></div></div>
+                </div> 
+              </div> 
+          </div> 
+      </div> 
+  </div> 
+</div> 
+
+<div>
+  <div class = "button ButtonClickable">
+      <button4 onclick="addNumber1()">Number accumulate</button4>
+  </div>
+  <div class = "button ButtonClickable">
+      <button5 onclick="addNumber2()">Number accumulate</button5>
+  </div>
+</div>
 </div>
 )rawliteral";
